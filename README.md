@@ -1,2 +1,1 @@
-# unad-mm-programa-1
-Programa de simulación de un semáforo con PIC16F84A.
+Encendido y apagado de 3 LEDS (Rojo, verde, amarillo) que hagan la secuencia de un semáforo enciende el led rojo 3 segundos, al segundo dos del led rojo se enciende el amarillo se pagan el led rojo y amarillo al tiempo y se enciende el led verde por 4 segundos y se reinicia la secuencia.
