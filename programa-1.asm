@@ -1,21 +1,21 @@
-; Programa para simular el funcionamiento de un sem·foro basado en el micro
+; Programa para simular el funcionamiento de un sem√°foro basado en el micro
 ; PIC16F84A.
 ;
 ; Pablo Salgado
-; 79535939
+; 
 ;
 ; Microcontroladores y Microprocesadores
-; Escuela de Ciencias B·sicas, TecnologÌa e IngenierÌa
+; Escuela de Ciencias B√°sicas, Tecnolog√≠a e Ingenier√≠a
 ; UNAD
 
-; Se incluye el archivo de definiciÛn de registros y otras configuraciones 
+; Se incluye el archivo de definici√≥n de registros y otras configuraciones 
 ; de Microchip Technology
 #include "p16f84a.inc"
 
 __CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_OFF & _CP_OFF
  
-; ConfiguraciÛn de registros de uso general para llevar a cabo los ciclos que
-; permiten generar los retardos requeridos para el funcionamiento del sem·foro
+; Configuraci√≥n de registros de uso general para llevar a cabo los ciclos que
+; permiten generar los retardos requeridos para el funcionamiento del sem√°foro
 C1  EQU	0x0C
 C2  EQU	0x0D
 C3  EQU	0x0E
@@ -109,7 +109,7 @@ LOOP4
     
 START
     ; ==========================================================================
-    ; ConfiguraciÛn de los tres bit de menor peso del puerto B como salida. En
+    ; Configuraci√≥n de los tres bit de menor peso del puerto B como salida. En
     ; cada uno de ellos se va a conectar un led de la siguiente forma:
     ; PORTB.0 => LED RED
     ; PORTB.1 => LED YELLOW
@@ -118,14 +118,14 @@ START
    
     ; Configurar el puerto B.
     BSF STATUS, RP0		    ; Se selecciona el banco 1 para configurar    
-    MOVLW   0xF8		    ; el registro TRISB con 0xF8 indicando asÌ
+    MOVLW   0xF8		    ; el registro TRISB con 0xF8 indicando as√≠
     MOVWF   TRISB		    ; que los tres bits de menor peso son OUT
 
     ; ==========================================================================
-    ; Rutina para simular el funcionamiento del sem·foro:
+    ; Rutina para simular el funcionamiento del sem√°foro:
     ; El LED rojo inicia encendido.
-    ; El LED amarillo se enciende un segundo despuÈs.
-    ; El LED rojo y amarillo se apagan dos segundos despuÈs.
+    ; El LED amarillo se enciende un segundo despu√©s.
+    ; El LED rojo y amarillo se apagan dos segundos despu√©s.
     ; EL LED verde se enciend y dura 4 segundos encendido.
     ; Vuelve a inicar la secuencia.
     ; ==========================================================================
@@ -137,14 +137,14 @@ BLINK
     BCF PORTB, 1
     BCF PORTB, 2
     
-    ; Se enciende el LED rojo que est· conectado en el PORTB.0. Esto se logra
+    ; Se enciende el LED rojo que est√° conectado en el PORTB.0. Esto se logra
     ; colocando un 1 en el bit 0 del puerto B
     BSF PORTB, 0		    ; Se coloca 1 en el bit 0 del puerto B
     
     ; Ahora se espera 1s antes de encender el LED amarillo
     CALL DELAY1S
     
-    ; Se enciende el LED amarillo que est· conectado en el PORTB.1. Esto se logra
+    ; Se enciende el LED amarillo que est√° conectado en el PORTB.1. Esto se logra
     ; colocanco 1 en el bit 1 del puerto B
     BSF PORTB, 1		    ; Se coloca 1 en el bit 0 del puerto B
     
